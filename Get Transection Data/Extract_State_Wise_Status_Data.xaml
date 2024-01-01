@@ -1,0 +1,132 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Extract_State_Wise_Status_Data" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Portal_URL" Type="InArgument(x:String)" />
+    <x:Property Name="dt_StateWiseStatusData" Type="OutArgument(sd:DataTable)" />
+  </x:Members>
+  <this:Extract_State_Wise_Status_Data.in_Portal_URL>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Extract_State_Wise_Status_Data.in_Portal_URL>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>561.3333333333334,670.6666666666666</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Extract_State_Wise_Status_Data_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Extract_State_Wise_Status_Data" sap:VirtualizedContainerService.HintSize="546,606" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: &quot;https://www.mygov.in/corona-data/covid19-statewise-status&quot;" sap:VirtualizedContainerService.HintSize="484,495.3333333333333" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" OpenMode="IfNotOpen" ScopeGuid="1a8bf426-6e27-4aa2-8f46-477de6a25e82" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,276" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[dt_StateWiseStatusData]" DisplayName="Extract Table Data - State Wise Status Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' Name='STATE NAME' ReferenceName='Column0'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' Name='TOTAL CONFIRMED' ReferenceName='Column4'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' Name='CURED-DISCHARGED-MIGRATED' ReferenceName='Column5'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' Name='DEATH' ReferenceName='Column6'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;/row&gt;&lt;column exact='1' name='Column0' attr='fulltext'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;/column&gt;&lt;column exact='1' name='Column4' attr='fulltext'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;/column&gt;&lt;column exact='1' name='Column5' attr='fulltext'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='3' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;/column&gt;&lt;column exact='1' name='Column6' attr='fulltext'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='4' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="388,160" sap2010:WorkflowViewState.IdRef="NExtractData_2" LimitExtractionTo="None" MaximumResults="0" Version="V3">
+              <uix:NExtractData.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="265, 677, 1388, 2548" DesignTimeScaleFactor="1.25" FriendlyName="'State Name: Andaman'" FullSelectorArgument="&lt;webctrl class='field-items' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' parentid='node-287111' tag='DIV' /&gt;" Guid="233a2ca5-6162-44d7-96d0-117de2efaa6b" InformativeScreenshot="267dd515d2a341e338652b8682d58f84.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='COVID19 STATEWISE STATUS | MyGov.in' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+              </uix:NExtractData.Target>
+            </uix:NExtractData>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-9, -9, 1938, 1098" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="c545c4b02cdd0e347d4e9a4ea925f2e7.png" Selector="&lt;html app='chrome.exe' url='https://www.mygov.in/corona-data/covid19-statewise-status' /&gt;" Title="New Tab" Url="[in_Portal_URL]" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
